@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <style>
+        body {
+            background: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form {
+            background: #f0f0f0;
+            width: 300px;
+            margin-top: 100px;
+            margin-left: 50px;
+            padding: 30px;
+            border-radius: 10%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0, 2);
+            text-align: center;
+        }
+
+        input {
+            border: none;
+            border-radius: 6px;
+            padding: 8px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            width: 80%;
+            background: rgba(0, 0, 255, 0.3);
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        p {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <form method="POST" onsubmit=" return login()">
+            <h1>Login</h1>
+            {% if cor %}
+            <h1>Correction: {{cor}}</h1>
+            {% endif %}
+            <label for="sname">Surname:</label>
+            <input type="text" id="sname" name="sname" required><br><br>
+
+            <label for="mname">Middle Name:</label>
+            <input type="text" id="mname" name="mname" required><br><br>
+
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" required><br><br>
+
+            <label for="usrn">Username:</label>
+            <input type="text" id="usrn" name="usrn" required><br><br>
+
+            <label for="pswd">Password:</label>
+            <input type="password" id="pswd" name="pswd" required><br><br>
+
+            <label for="cpswd">Confirm Password:</label>
+            <input type="password" id="cpswd" name="cpswd" required><br><br>
+
+            <button type="submit">SUBMIT</button>
+
+            <a href="/sign_up" style="text-decoration: none;color: black;" title="Register now">
+                <h4>Don't have an account yet, click <u style="color: blue;">here</u> to register</h4>
+            </a>
+        </form>
+        <p id="area"></p>
+    </div>
+    <script>
+        function login() {
+            let user = document.getElementById('usrn').value;
+            let password = document.getElementById('pswd').value;
+            if (user.length < 3 || password.length < 3) {
+                document.getElementById('area').textContent = "Please make sure the values are more than 3"
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
