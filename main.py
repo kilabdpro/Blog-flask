@@ -46,7 +46,7 @@ def sign_in():
 
 @app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
-    return "wassup everyone 😄"
+    return "wassup everyone 😄kilabpro here😎"
 
 if __name__ == "__main__":
     app.run(dedug=True)
